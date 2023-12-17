@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
 {
+    use App\Models\Post;
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->get();
-
-        $data = [
-            'posts' => $posts,
-        ];
-
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+        $data = ['posts'=>$posts];
         return view('admin.posts.index', $data);
     }
 
