@@ -19,25 +19,18 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col"style="text-align: left">標題</th>
-            <th scope="col"style="text-align: right">精選?</th>
+            <th scope="col">標題</th>
             <th scope="col">功能</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($posts as $post)
+        @foreach(range(1, 10) as $id)
             <tr>
-                <td> style="text-align:right">
-                    {{ $post->id }}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $posts->is_feature? 'v' : 'x' }}</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" href="{{ route('admin.posts.edit',$post->id) }}">編輯</a>
-                    <form action="{{route('admin.posts.destroy',$post->id)}}" method="POST" style="display: inline-block">
-                        @method('DELETE')
-                        @csrf
-                        <button class="btn btn-sm btn-danger" type="submit">刪除</button>
-                    </form>
+                <th scope="row" style="width: 50px">{{ $id }}</th>
+                <td>{{ '標題' . $id }}</td>
+                <td style="width: 150px">
+                    <button type="button" class="btn btn-primary btn-sm">編輯</button>
+                    <button type="button" class="btn btn-danger btn-sm">刪除</button>
                 </td>
             </tr>
         @endforeach

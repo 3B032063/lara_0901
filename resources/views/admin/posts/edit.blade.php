@@ -15,23 +15,17 @@
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <form action="/admin/posts/{{$post->id}}" method="POST" role="form">
-        @method('PATCH')
-        @csrf
-        <div class="form-group">
-            <label for="title" class="form-label">標題：</label>
-            <input name="title" class="form-control" placeholder="請輸入文章標題" value="{{ old('title',$post->title) }}">
+    <form>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">文章標題</label>
+            <input type="text" class="form-control" placeholder="請輸入文章標題">
         </div>
-        <div class="form-group">
-            <label for="content" class="form-label">內容：</label>
-            <textarea id="content" name="content" class="form-control" rows="10" {{ old('content,$post->content') }}</textarea>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">文章內容</label>
+            <textarea class="form-control" rows="10" placeholder="請輸入文章內容"></textarea>
         </div>
-        <div class="form-group">
-            <label for="is_feature" class="form-label">精選?</label>
-            <select id="is_feature" name="is_feature" class="form-control">
-                <option value="0" {{ (!$post->is_feature)?'selected':"}}>否</option>
-                <option value="1" {{ ($post->is_feature)?'selected':"}}>是</option>
-            </select>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-primary btn-sm" href="#">儲存</a>
         </div>
     </form>
 </div>
