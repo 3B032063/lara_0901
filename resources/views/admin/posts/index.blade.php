@@ -13,7 +13,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-success btn-sm" href="{{ route('admin.posts.create') }}">新增</a>
+        <a class="btn btn-sm btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">編輯</a>
+
     </div>
     <table class="table">
         <thead>
